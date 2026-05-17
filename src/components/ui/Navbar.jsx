@@ -42,7 +42,7 @@ const Navbar = () => {
         <ul className="flex items-center gap-4">
           <li className="flex gap-2 items-center font-semibold">
             <GoPerson />
-            <Link href={"/login"}>Login</Link>
+            <Link href={"/signin"}>Login</Link>
           </li>
           <li className="font-semibold">
             <Link href={"/signup"}>SignUp</Link>
