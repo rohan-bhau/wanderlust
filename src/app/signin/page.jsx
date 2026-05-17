@@ -33,6 +33,12 @@ const LoginPage = () => {
         console.log({data, error})
     }
 
+    const handleGoogleSignIn = async () => {
+        await authClient.signIn.social({
+            provider: "google",
+        })
+    }
+
   return (
     <div className='mt-25 mb-15 max-w-7xl mx-auto'>
           <h2 className='text-center text-3xl font-bold mb-2'>Welcome Back</h2>
@@ -89,7 +95,7 @@ const LoginPage = () => {
         <InputGroup.Input
           className="w-full "
           type={isVisible ? "text" : "password"}
-         placeholder='Create a Password'
+         placeholder='Enter your Password'
         />
         <InputGroup.Suffix className="pr-0">
           <Button
@@ -123,7 +129,7 @@ const LoginPage = () => {
                   <span className='text-center text-[#6C696D]'>    Or sign up with</span>
                       <span className='border-t mt-3'></span>
                   </div>
-                  <Button variant='outline'   className="
+                  <Button variant='outline' onClick={handleGoogleSignIn}   className="
     rounded-none
     w-full
     mb-4
@@ -131,7 +137,7 @@ const LoginPage = () => {
     duration-300
     hover:border-[#15a1bf]
     hover:text-[#15a1bf]
-    hover:bg-[#f4fcff]
+    hover:bg-[#f4fcff] 
     hover:-translate-y-1
   "><FcGoogle />SignUp with Google</Button>
 

@@ -1,8 +1,10 @@
+
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import NavLink from '../shared/NavLink'
-import { GoPerson } from 'react-icons/go';
+import QuickLinks from '../shared/QuickLinks'
+
 
 const Navbar = () => {
   return (
@@ -39,15 +41,8 @@ const Navbar = () => {
 
         {/* signup and signin button */}
 
-        <ul className="flex items-center gap-4">
-          <li className="flex gap-2 items-center font-semibold">
-            <GoPerson />
-            <Link href={"/signin"}>Login</Link>
-          </li>
-          <li className="font-semibold">
-            <Link href={"/signup"}>SignUp</Link>
-          </li>
-        </ul>
+          <QuickLinks/>
+
       </div>
     </div>
   )

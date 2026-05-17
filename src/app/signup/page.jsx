@@ -43,6 +43,11 @@ const SignUpPage = () => {
         }
         console.log({data, error})
     }
+        const handleGoogleSignIn = async () => {
+            await authClient.signIn.social({
+                provider: "google",
+            })
+        }
 
   return (
     <div className='mt-25 mb-15 max-w-7xl mx-auto'>
@@ -193,7 +198,7 @@ const SignUpPage = () => {
                   <span className='text-center text-[#6C696D]'>    Or sign up with</span>
                       <span className='border-t mt-3'></span>
                   </div>
-                  <Button variant='outline'   className="
+                  <Button variant='outline' onClick={handleGoogleSignIn}   className="
     rounded-none
     w-full
     mb-4
