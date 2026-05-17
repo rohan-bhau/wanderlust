@@ -1,3 +1,4 @@
+import DeleteBooking from '@/components/shared/DeleteBooking'
 import { auth } from '@/lib/auth'
 import { Button, Card } from '@heroui/react'
 import { headers } from 'next/headers'
@@ -16,7 +17,7 @@ const MyBookingPage = async () => {
 
     const user = session?.user
     console.log(user)
-    const res = await fetch(`http://localhost:5000/bookings/${user?.id}`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/bookings/${user?.id}`)
     const data = await res.json()
     console.log(data)
 
@@ -61,7 +62,7 @@ const MyBookingPage = async () => {
                               <div className='flex justify-between'>
                                   <p className='text-3xl font-bold text-[#15a1bf]     transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_12px_rgba(21,161,191,0.45)]'>${d.price}</p>
                                   <div className='flex gap-3 items-center'>
-                                      <Button variant='outline' className={' text-[#EF4444] border-[#EF4444] rounded-none transition-all duration-300 hover:bg-[#EF4444] hover:text-white hover:-translate-y-1 hover:shadow-lg'}><FaRegTrashAlt />Cancel</Button>
+                                      <DeleteBooking d={d} />
                                     <Link href={`/destinations/${d.destinationId}`}>  <Button className={'bg-[#15a1bf] rounded-none transition-all duration-300 hover:bg-[#1188a1] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(21,161,191,0.35)]'}><FaRegEye />View</Button></Link>
                                   </div>
                               </div>

@@ -1,7 +1,9 @@
 import BookingCard from '@/components/shared/BookingCard';
 import DeleteDestination from '@/components/shared/DeleteDestination';
 import EditDestination from '@/components/shared/EditDestination';
+import { auth } from '@/lib/auth';
 import { Button } from '@heroui/react';
+import { headers } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
@@ -14,7 +16,15 @@ import { RiDeleteBin6Line } from 'react-icons/ri';
 const DetailPage = async ({ params }) => {
     const { id } = await params;
     // console.log(id)
-        const res = await fetch(`http://localhost:5000/destination/${id}`)
+    const {token} = await auth.api.getToken({
+        headers: await headers()
+    })
+    console.log(token)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/destination/${id}`, {
+        headers: {
+                authorization: `Bearer ${token}`
+            }
+        })
     const destination = await res.json()
     // console.log(destination)
         const {_id,destinationName,country,category,price,duration,departureDate,imageUrl,description}=destination
