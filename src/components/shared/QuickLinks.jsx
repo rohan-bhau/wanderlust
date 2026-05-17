@@ -8,7 +8,7 @@ import { GoPerson } from 'react-icons/go'
 const QuickLinks = () => {
       const { data: session } =  authClient.useSession()
   const user = session?.user
-  console.log(user)
+  // console.log(user)
     return (
         <div>
             {user ? <div className='flex items-center gap-3'>

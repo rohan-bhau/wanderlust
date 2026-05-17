@@ -1,3 +1,4 @@
+import BookingCard from '@/components/shared/BookingCard';
 import DeleteDestination from '@/components/shared/DeleteDestination';
 import EditDestination from '@/components/shared/EditDestination';
 import { Button } from '@heroui/react';
@@ -55,103 +56,10 @@ const DetailPage = async ({ params }) => {
                           <li className='flex gap-2 items-center'><IoMdCheckmark className='text-[#1E9E35]' /> Private beach dinner experience</li>
                       </ul>
                   </div>
-              </div>
-             <div
-  className="
-    border border-[#eeeeee]/93
-    p-4
-    shadow-lg
-    rounded-none
-    bg-white
-    transition-all
-    duration-500
-    ease-out
-    hover:-translate-y-2
-    hover:shadow-2xl
-    hover:border-[#15a1bf]/40
-    hover:bg-gradient-to-b
-    hover:from-white
-    hover:to-[#f4fcff]
-    group
-    cursor-pointer
-  "
->
-  <p className='font-xl text-[#6c695d] transition-colors duration-300 group-hover:text-[#15a1bf]'>
-    Starting from
-  </p>
-
-  <h2
-    className="
-      font-bold
-      text-3xl
-      text-[#15a1bf]
-      transition-all
-      duration-300
-      group-hover:scale-105
-    "
-  >
-    ${price}
-  </h2>
-
-  <p className='font-xl text-[#6c695d] mb-5'>
-    Per Person
-  </p>
-
-  <p
-    className="
-      border
-      p-2
-      bg-[#eeeeee]/95
-      rounded-lg
-      mb-5
-      transition-all
-      duration-300
-      group-hover:bg-[#15a1bf]
-      group-hover:text-white
-    "
-  >
-    {departureDate}
-  </p>
-
-  <div className='pt-5 border-t-2 mb-5'>
-    <Button
-      className="
-        w-full
-        bg-[#15a1bf]
-        rounded-lg
-        flex
-        gap-2
-        items-center
-        justify-center
-        transition-all
-        duration-300
-        hover:bg-[#0f89a2]
-        hover:scale-[1.03]
-        hover:shadow-lg
-      "
-    >
-      Book Now
-      <FaArrowRight className='transition-transform duration-300 group-hover:translate-x-1' />
-    </Button>
-  </div>
-
-  <ul className='space-y-3'>
-    <li className='flex gap-2 items-center text-gray-700 transition-all duration-300 group-hover:translate-x-1'>
-      <IoMdCheckmark className='text-[#1E9E35]' />
-      Free cancellation up to 7 days
-    </li>
-
-    <li className='flex gap-2 items-center text-gray-700 transition-all duration-300 group-hover:translate-x-1'>
-      <IoMdCheckmark className='text-[#1E9E35]' />
-      Travel insurance included
-    </li>
-
-    <li className='flex gap-2 items-center text-gray-700 transition-all duration-300 group-hover:translate-x-1'>
-      <IoMdCheckmark className='text-[#1E9E35]' />
-      24/7 customer support
-    </li>
-  </ul>
-</div>
+        </div>
+        
+        {/* booking card */}
+        <BookingCard destination={ destination} />
           </div>
     </div>
   )
